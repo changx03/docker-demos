@@ -21,4 +21,7 @@ docker compose stop
 
 # Run a container in a interactive shell
 docker compose run --rm -it <SERVICE_NAME> bash
+
+# Use `watch` to watch file changes (Check `docker_compose_quickstart` example)
+docker compose watch
 ```
