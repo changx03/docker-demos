@@ -1,0 +1,11 @@
+services:
+  ros2-dev:
+    build: .
+    devices:
+      - "/dev/ttyUSB0:/dev/ttyUSB0"
+      - "/dev/ttyUSB1:/dev/ttyUSB1"
+      - "/dev/bus/usb:/dev/bus/usb"
+    volumes:
+      - "/home/anyone/boxfish:/boxfish"
+      - "/opt/pylon:/opt/pylon:ro"
+    privileged: true
