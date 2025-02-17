@@ -9,5 +9,5 @@ docker compose build
 ## Run `docker compose` in a interactive shell
 
 ```bash
-docker compose run --rm <SERVICE_NAME> bash
+docker compose run --rm -it <SERVICE_NAME> bash
 ```
