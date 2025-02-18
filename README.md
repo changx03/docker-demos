@@ -11,7 +11,8 @@ docker ps -a
 # Compose
 docker compose build
 
-docker compose up
+docker compose up -d
+# -d Detached mode
 
 # DOWN removes containers
 docker compose down

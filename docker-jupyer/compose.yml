@@ -1,0 +1,8 @@
+services:
+  jupyter:
+    build: .
+    container_name: jupyter
+    ports:
+      - "8889:8888"
+    volumes:
+      - ~/workspace/ws_commander_log:/home/jovyan/work
