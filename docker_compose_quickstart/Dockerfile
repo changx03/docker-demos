@@ -13,6 +13,6 @@ RUN pip install -r requirements.txt
 
 EXPOSE 5000
 
-COPY . .
+COPY ./web .
 
-CMD ["flask", "run", "--debug"]
+CMD ["flask", "run"]

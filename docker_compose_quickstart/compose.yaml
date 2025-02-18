@@ -3,10 +3,13 @@ services:
     build: .
     ports:
       - "5000:5000"
+    environment:
+      - "FLASK_ENV=development"
+      - "FLASK_DEBUG=1"
     develop:
       watch:
         - action: sync
-          path: .
+          path: ./web
           target: /code
   redis:
     image: "redis:alpine"
