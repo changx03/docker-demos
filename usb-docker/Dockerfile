@@ -7,6 +7,8 @@ RUN apt-get update && \
     python3.10 \
     python3-pip \
     picocom \
-    usbutils
+    usbutils \
+    inotify-tools \
+    udev
 
-CMD [ "/bin/bash" ]
+CMD [ "tail", "-f", "/dev/null" ]
