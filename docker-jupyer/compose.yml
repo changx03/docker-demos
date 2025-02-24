@@ -5,4 +5,5 @@ services:
     ports:
       - "8889:8888"
     volumes:
-      - ~/workspace/ws_commander_log:/home/jovyan/work
+      - ~/workspace/docker_vol_jupyter:/home/jovyan/work
+    restart: unless-stopped
