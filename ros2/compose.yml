@@ -1,9 +1,8 @@
 services:
   ros2-dev:
     build: .
+    container_name: ros2-dev
     devices:
-      - "/dev/ttyUSB0:/dev/ttyUSB0"
-      - "/dev/ttyUSB1:/dev/ttyUSB1"
       - "/dev/bus/usb:/dev/bus/usb"
     volumes:
       - "/home/anyone/boxfish:/boxfish"
