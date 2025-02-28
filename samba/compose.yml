@@ -1,0 +1,14 @@
+services:
+  samba:
+    image: dockurr/samba
+    container_name: samba
+    environment:
+      NAME: "Data"
+      USER: "samba"
+      PASS: "secret"
+    ports:
+      - 445:445
+    volumes:
+      # configuration file is in `/etc/samba/smb.conf`. `/storage` is the default shared dir
+      - /home/anyone/resource:/storage
+    restart: always
