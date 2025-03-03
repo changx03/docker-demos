@@ -1,0 +1,10 @@
+services:
+  file-container:
+    build: .
+    container_name: file-container
+    volumes:
+      - file-container-data:/data
+
+volumes:
+  file-container-data:
+    name: file-container-data
