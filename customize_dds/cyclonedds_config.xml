@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CycloneDDS xmlns="https://cdds.io/config"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd"
+>
+    <Domain id="any">
+        <General>
+            <!-- Multicast only on discovery -->
+            <AllowMulticast>spdp</AllowMulticast>
+            <Interfaces>
+                <NetworkInterface address="127.0.0.1" />
+                <!-- Dev Jetson: enP8p1s0 -->
+                <!-- Desktop PC: eno1 -->
+                <!-- T5: eth0 -->
+                <NetworkInterface name="eno1" />
+            </Interfaces>
+        </General>
+        <Internal>
+            <MultipleReceiveThreads>true</MultipleReceiveThreads>
+            <!-- a writer with QoS settings transport_priority >= SynchronousDeliveryPriorityThreshold and 
+            a latency_budget at most this element's value will be delivered synchronously from the "recv" thread, 
+            all others will be delivered asynchronously through delivery queues. 
+            This reduces latency at the expense of aggregate bandwidth. -->
+            <SynchronousDeliveryLatencyBound>5ms</SynchronousDeliveryLatencyBound>
+        </Internal>
+        <Discovery>
+            <MaxAutoParticipantIndex>119</MaxAutoParticipantIndex> <!-- Must < 120 https://discourse.ros.org/t/maximum-number-of-nodes-in-ros2/598/4 -->
+            <ParticipantIndex>none</ParticipantIndex>
+            <Peers>
+                <Peer Address="127.0.0.1" />
+                <!-- <Peer Address="192.168.183.221" /> -->
+                <Peer Address="192.168.183.222" />
+                <!-- <Peer Address="192.168.183.81" /> -->
+            </Peers>
+        </Discovery>
+    </Domain>
+</CycloneDDS>

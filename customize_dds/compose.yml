@@ -1,0 +1,22 @@
+services:
+  ros2-dev-back:
+    build:
+      context: .
+      dockerfile: ./back/Dockerfile
+    container_name: ros2-dev-back
+    volumes:
+      - "./back:/app/src"
+      - "./cyclonedds_config.back.xml:/app/cyclonedds_config.xml"
+    privileged: true
+    network_mode: "host"
+
+  ros2-dev-front:
+    build:
+      context: .
+      dockerfile: ./front/Dockerfile
+    container_name: ros2-dev-front
+    volumes:
+      - "./front:/app/src"
+      - "./cyclonedds_config.front.xml:/app/cyclonedds_config.xml"
+    privileged: true
+    network_mode: "host"
