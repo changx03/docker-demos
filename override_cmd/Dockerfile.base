@@ -1,0 +1,9 @@
+FROM busybox:stable
+
+WORKDIR /app
+
+COPY dummy_script.sh ./dummy_script.sh
+
+RUN sh dummy_script.sh
+
+CMD [ "echo", "Hello from base image!" ]

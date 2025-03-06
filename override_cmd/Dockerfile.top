@@ -1,0 +1,6 @@
+FROM busy-base:latest
+
+WORKDIR /app
+
+# CMD [ "echo", "Hello from the top container!" ]
+CMD [ "tail", "-f", "/dev/null" ]
