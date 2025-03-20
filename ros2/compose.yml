@@ -5,6 +5,7 @@ services:
     devices:
       - "/dev/bus/usb:/dev/bus/usb"
     volumes:
-      - "/home/anyone/boxfish:/boxfish"
+      - "/home/anyone/boxfish:/app"
       - "/opt/pylon:/opt/pylon:ro"
     privileged: true
+
