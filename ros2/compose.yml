@@ -8,4 +8,4 @@ services:
       - "/home/anyone/boxfish:/app"
       - "/opt/pylon:/opt/pylon:ro"
     privileged: true
-
+    restart: unless-stopped
