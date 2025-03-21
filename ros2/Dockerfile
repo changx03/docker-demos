@@ -11,8 +11,8 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y \
     picocom \
     usbutils \
-    build-essential \
-    gosu
+    iproute2 \
+    build-essential
 
 # Install ROS2 packages
 RUN apt-get install -y \
@@ -33,15 +33,6 @@ RUN apt-get install -y \
 # Clean up
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-
-# Set user and group
-ENV UID=${HOST_UID:-1000}
-ENV GID=${HOST_GID:-1000}
-
-COPY entrypoint.bash /usr/local/bin/entrypoint.bash
-RUN chmod +x /usr/local/bin/entrypoint.bash
-
-ENTRYPOINT ["/usr/local/bin/entrypoint.bash"]
 
 # Default command
 CMD ["tail", "-f", "/dev/null"]
