@@ -300,3 +300,7 @@ install/
 log/
 .bash_history
 test/
+
+# ROS2 config files
+.ros
+.rviz2
