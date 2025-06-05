@@ -9,10 +9,19 @@ RUN apt-get update && apt-get upgrade -y
 
 # Install utilities
 RUN apt-get install -y \
-    picocom \
-    usbutils \
+    build-essential \
+    glances \
+    iperf3 \
     iproute2 \
-    build-essential
+    iputils-ping \
+    nmap \ 
+    picocom \
+    screen \
+    traceroute \
+    usbutils \
+    vim \
+    x11-apps \
+    xclip
 
 # Install ROS2 packages
 RUN apt-get install -y \

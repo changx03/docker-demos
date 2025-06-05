@@ -1,0 +1,16 @@
+<CycloneDDS>
+  <Domain>
+    <General>
+      <AllowMulticast>true</AllowMulticast>
+      <!-- Host IP address -->
+       <Interfaces>
+         <NetworkInterface address="192.168.183.82"/>
+       </Interfaces>
+    </General>
+    <Discovery>
+      <Peers>
+        <Peer address="192.168.183.255"/>  <!-- Subnet broadcast address -->
+      </Peers>
+    </Discovery>
+  </Domain>
+</CycloneDDS>
