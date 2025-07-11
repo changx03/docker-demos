@@ -7,7 +7,9 @@
     <Domain id="any">
         <General>
             <AllowMulticast>true</AllowMulticast>
-            <NetworkInterfaceAddress>enp11s0</NetworkInterfaceAddress>
+	    <Interfaces>
+	        <NetworkInterface name="enp11s0" />
+	    </Interfaces>
         </General>
     </Domain>
 </CycloneDDS>
