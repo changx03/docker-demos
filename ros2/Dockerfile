@@ -28,7 +28,8 @@ RUN apt-get install -y \
     ros-humble-navigation2 \
     ros-humble-nav2-bringup \
     libgeographic-dev \
-    ros-humble-xacro
+    ros-humble-xacro \
+    ros-humble-rmw-cyclonedds-cpp
    
 # Install dependencies for Sony Camera Control PTP3 
 RUN apt-get install -y \
@@ -42,6 +43,9 @@ RUN apt-get install -y \
 # Clean up
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+
+# The default working directory `/app` will be mounted to the host. Copy to root instead
+COPY cyclonedds.xml /
 
 # Default command
 CMD ["tail", "-f", "/dev/null"]

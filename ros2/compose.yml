@@ -5,7 +5,11 @@ services:
     devices:
       - "/dev/bus/usb:/dev/bus/usb"
     volumes:
-      - "/home/anyone/boxfish:/app"
+      - "/home/luke/workspace/boxfish:/app"
       - "/opt/pylon:/opt/pylon:ro"
     privileged: true
     restart: unless-stopped
+    network_mode: host
+    environment:
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+      - CYCLONEDDS_URI=file:///cyclonedds.xml
