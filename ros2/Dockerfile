@@ -40,6 +40,23 @@ RUN apt-get install -y \
     libstdc++6 \
     libstdc++-11-dev
 
+# Install dependencies for exiv2 (image exif parser)
+RUN apt-get install -y \
+    ccache \
+    clang \
+    cmake \
+    git \
+    google-mock \
+    libbrotli-dev \
+    libcurl4-openssl-dev \
+    libexpat1-dev \
+    libgtest-dev \
+    libinih-dev \
+    libssh-dev \
+    libxml2-utils \
+    libz-dev \
+    zlib1g-dev
+
 # Clean up
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
