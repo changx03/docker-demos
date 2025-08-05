@@ -43,9 +43,6 @@ RUN apt-get install -y \
 # Install dependencies for exiv2 (image exif parser)
 RUN apt-get install -y \
     ccache \
-    clang \
-    cmake \
-    git \
     google-mock \
     libbrotli-dev \
     libcurl4-openssl-dev \
@@ -55,7 +52,8 @@ RUN apt-get install -y \
     libssh-dev \
     libxml2-utils \
     libz-dev \
-    zlib1g-dev
+    zlib1g-dev \
+    exiftool
 
 # Clean up
 RUN apt-get clean && \
