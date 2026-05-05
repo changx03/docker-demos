@@ -55,6 +55,13 @@ RUN apt-get install -y \
     zlib1g-dev \
     exiftool
 
+# Install GStreamer
+RUN apt-get install -y \
+    libgstreamer1.0-dev \
+    libgstreamer-plugins-base1.0-dev \
+    libgstrtspserver-1.0-dev \
+    libv4l-dev
+
 # Clean up
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
