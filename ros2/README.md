@@ -22,3 +22,21 @@ services:
 ```
 
 Then run `docker compose up`
+
+## With X11 XDisplay support for RVIZ2
+
+```yaml
+    volumes:
+      # ...
+      - "/tmp/.X11-unix:/tmp/.X11-unix:rw"    # X11 socket
+    privileged: true
+    environment:
+      # ...
+      - DISPLAY=${DISPLAY}                     # X11 display
+      - QT_X11_NO_MITSHM=1                    # Prevent Qt crash
+```
+
+```bash
+xhost +local:docker
+docker compose up -d
+```
