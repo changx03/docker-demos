@@ -8,7 +8,7 @@ WORKDIR /app
 RUN apt-get update && apt-get upgrade -y
 
 # Install utilities
-RUN apt-get install -y \
+RUN apt-get update && apt-get install -y \
     build-essential \
     glances \
     iperf3 \
@@ -21,18 +21,24 @@ RUN apt-get install -y \
     usbutils \
     vim \
     x11-apps \
-    xclip
+    xclip \
+    python3-pip
 
 # Install ROS2 packages
-RUN apt-get install -y \
+RUN apt-get update && apt-get install -y \
+    ros-humble-desktop \
+    ros-dev-tools \
     ros-humble-navigation2 \
     ros-humble-nav2-bringup \
     libgeographic-dev \
     ros-humble-xacro \
-    ros-humble-rmw-cyclonedds-cpp
-   
+    ros-humble-rmw-cyclonedds-cpp \
+    ros-humble-tf-transformations
+
+RUN pip3 install --upgrade transforms3d
+
 # Install dependencies for Sony Camera Control PTP3 
-RUN apt-get install -y \
+RUN apt-get update && apt-get install -y \
     libusb-1.0-0 \
     libusb-1.0-0-dev \
     libc6 \
@@ -41,7 +47,7 @@ RUN apt-get install -y \
     libstdc++-11-dev
 
 # Install dependencies for exiv2 (image exif parser)
-RUN apt-get install -y \
+RUN apt-get update && apt-get install -y \
     ccache \
     google-mock \
     libbrotli-dev \
@@ -56,7 +62,7 @@ RUN apt-get install -y \
     exiftool
 
 # Install GStreamer
-RUN apt-get install -y \
+RUN apt-get update && apt-get install -y \
     libgstreamer1.0-dev \
     libgstreamer-plugins-base1.0-dev \
     libgstrtspserver-1.0-dev \
