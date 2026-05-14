@@ -5,7 +5,7 @@ services:
     devices:
       - "/dev/bus/usb:/dev/bus/usb"
     volumes:
-      - "/home/luke/workspace/boxfish:/app/boxfish"
+      - "/home/luke/workspace:/app"
       - "/home/luke/.rviz2:/app/.rviz2"
       - "/opt:/opt:ro"
       - "/tmp/.X11-unix:/tmp/.X11-unix:rw" 
